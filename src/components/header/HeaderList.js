@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles({
     root: {
@@ -14,14 +15,16 @@ const useStyles = makeStyles({
         fontFamily: 'FiraGO',
         padding: 0,
         margin: 0,
-        color: '#696969'
+        color: '#696969',
+        cursor: 'pointer'
     },
     secondary: {
         fontSize: '10px',
         fontFamily: 'FiraGO',
         color: '#bababa',
         padding: 0,
-        margin: 0
+        margin: 0,
+        cursor: 'pointer'
     }
 });
 
@@ -33,8 +36,8 @@ function HeaderList(props) {
     const secondary = props.secondary;
     return (
         <div className={classes.root}>
-            <p className={classes.primaryText}>{text}</p>
-            <p className={classes.secondary}>{secondary}</p>
+            <Link className={classes.primaryText}>{text}</Link>
+            <Link className={classes.secondary}>{secondary}</Link>
         </div>
 
     )

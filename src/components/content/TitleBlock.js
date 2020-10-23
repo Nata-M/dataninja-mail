@@ -1,8 +1,7 @@
 import React from 'react';
-import { fade, makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { InputBase } from '@material-ui/core';
 
@@ -12,7 +11,6 @@ const useStyles = makeStyles({
         flexDirection: 'column',
         width: '900px',
         margin: ' 32px auto',
-        position: 'relative'
     },
     paragraph: {
         color: '#696969',
@@ -29,12 +27,10 @@ const useStyles = makeStyles({
         color: '#151f85',
         lineHeight: '1.11'
     },
-    inputStyle: {
+    inputStyles: {
         display: 'flex',
         alignItems: 'center',
-        color: '#818181',
         backgroundColor: '#ffffff',
-        // boxShadow: '0 2px 11px 0 rgba(0, 0, 0, 0.1)',
         border: 'none',
         borderRadius: '24px',
         width: '260px',
@@ -75,8 +71,6 @@ const useStyles = makeStyles({
     image: {
         width: '100%',
         height: '100%'
-
-        // filter: 'opacity(30%)'
     },
     imgNinja: {
         position: 'absolute',
@@ -84,6 +78,14 @@ const useStyles = makeStyles({
     },
     margin: {
         margin: '8px'
+    },
+    inputStyle: {
+        color: '#818181',
+        '& ::placeholder': {
+            opacity: 'none',
+            color: '#818181',
+            fontWeight: 'bold'
+        }
     },
 });
 
@@ -99,9 +101,9 @@ function TitleBlock() {
             we aim to give companies one, easy solution to build powerful marketing campaigns and make <br />
                  their digital advertising profitable.</Typography>
             <Grid container className={classes.container}>
-                <Grid item className={classes.inputStyle}>
+                <Grid item className={classes.inputStyles}>
                     <img className={classes.img} alt='mail' src={require('../../photos/mail.svg')} />
-                    <InputBase inputProps={{ classes, color: '#818181' }} placeholder='Your mail' />
+                    <InputBase className={classes.inputStyle} inputProps={{ classes, color: '#818181' }} label='test' placeholder='Your mail' />
                 </Grid>
                 <Grid item>
                     <Button className={classes.button}>Contact Me</Button>

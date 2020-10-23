@@ -53,7 +53,6 @@ const useStyles = makeStyles((theme) => ({
         fontWeight: 900,
         linehHeight: 1.38,
         color: "#454545",
-        width: 500,
         width: 604,
         textAlign: "center"
     },
@@ -98,7 +97,7 @@ function ContentBottom() {
             </Typography>
             </Grid>
             <div className={classes.media}>
-                <img src='/screen/screen_1.JPG' />
+                <img alt='dataninja' src='/screen/screen_1.JPG' />
             </div>
 
 
@@ -117,7 +116,7 @@ function ContentBottom() {
             </Typography>
             </Grid>
             <div className={classes.media}>
-                <img src='/screen/screen_2.JPG' />
+                <img alt='dataninja' src='/screen/screen_2.JPG' />
             </div>
 
 
@@ -139,7 +138,7 @@ function ContentBottom() {
             </Typography>
             </Grid>
             <div className={classes.media}>
-                <img src='/screen/screen_3.JPG' />
+                <img alt='dataninja' src='/screen/screen_3.JPG' />
             </div>
 
 
@@ -157,7 +156,7 @@ function ContentBottom() {
             </Typography>
             </Grid>
             <div className={classes.media}>
-                <img src='/screen/screen_4.JPG' />
+                <img alt='dataninja' src='/screen/screen_4.JPG' />
             </div>
 
 
@@ -178,7 +177,7 @@ function ContentBottom() {
             </Typography>
             </Grid>
             <div className={classes.media}>
-                <img src='/screen/screen_5.JPG' />
+                <img alt='dataninja' src='/screen/screen_5.JPG' />
             </div>
 
         </List>

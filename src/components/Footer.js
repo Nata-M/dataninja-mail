@@ -58,7 +58,8 @@ const useStyles = makeStyles((theme) => ({
         color: '#ffffff',
         lineHeight: 2.29,
         fontSize: 14,
-        paddingTop: 50
+        paddingTop: 50,
+        justifyContent: 'center'
     },
     link: {
         fontSize: 14,
@@ -70,7 +71,26 @@ const useStyles = makeStyles((theme) => ({
     _container: {
         display: 'flex',
         justifyContent: 'center',
-    }
+    },
+    icon: {
+        display: 'flex',
+        flexDirection: 'row',
+
+    },
+    icons: {
+        marginRight: '12px'
+    },
+    // iconStyle: {
+    //     color: "red",
+    //     backgroundColor: '#ffffff',
+    //     borderRadius: '50%',
+    //     width: '20px',
+    //     height: '20px',
+    //     display: 'flex',
+    //     alignItems: 'center',
+    //     justifyContent: 'center'
+    // }
+
 }))
 function Footer() {
     const classes = useStyles();
@@ -91,17 +111,25 @@ function Footer() {
             </Grid>
 
             <Grid item xs={12} className={classes.grid}>
-                <Grid item xs={10} className={classes.nested_grid}>
-                    <Grid item xs={4}>
+                <Grid item xs={12} className={classes.nested_grid}>
+                    <Grid item xs={3} style={{ textAlign: 'right' }}>
                         Dataninja © 2019-20
                         </Grid>
-                    <Grid item xs={4} className={classes._container}>
+                    <Grid item xs={7} className={classes._container}>
                         <Link href="#" className={classes.link}>Product Story</Link>
                         <Link href="#" className={classes.link}>About us</Link>
                         <Link href="#" className={classes.link}>Contact</Link>
                     </Grid>
-                    <Grid item xs={4} className={classes.icon}>
-
+                    <Grid item xs={2} className={classes.icon}>
+                        <div className={classes.icons} >
+                            <i className="fa fa-facebook" style={{ color: "#000000", backgroundColor: '#ffffff', borderRadius: '50%', width: '20px', height: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center' }} ></i>
+                        </div>
+                        <div className={classes.icons} >
+                            <i className="fa fa-twitter" style={{ color: "#000000", backgroundColor: '#ffffff', borderRadius: '50%', width: '20px', height: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}></i>
+                        </div>
+                        <div className={classes.icons} >
+                            <i className="fa fa-instagram" style={{ color: "#ffffff", backgroundColor: '#151a22', fontSize: '24px', borderRadius: '50 % ', width: '20px', height: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}></i>
+                        </div>
                     </Grid>
                 </Grid>
             </Grid>
