@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
+import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles({
     root: {
@@ -35,10 +36,10 @@ function HeaderList(props) {
     const text = props.text;
     const secondary = props.secondary;
     return (
-        <div className={classes.root}>
+        <Grid item className={classes.root}>
             <Link className={classes.primaryText}>{text}</Link>
             <Link className={classes.secondary}>{secondary}</Link>
-        </div>
+        </Grid>
 
     )
 }

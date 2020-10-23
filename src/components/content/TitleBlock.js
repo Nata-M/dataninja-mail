@@ -82,9 +82,10 @@ const useStyles = makeStyles({
     inputStyle: {
         color: '#818181',
         '& ::placeholder': {
-            opacity: 'none',
+            fontFamily: 'FiraGO',
+            opacity: 1,
             color: '#818181',
-            fontWeight: 'bold'
+            fontWeight: 'bold',
         }
     },
 });
@@ -103,7 +104,7 @@ function TitleBlock() {
             <Grid container className={classes.container}>
                 <Grid item className={classes.inputStyles}>
                     <img className={classes.img} alt='mail' src={require('../../photos/mail.svg')} />
-                    <InputBase className={classes.inputStyle} inputProps={{ classes, color: '#818181' }} label='test' placeholder='Your mail' />
+                    <InputBase className={classes.inputStyle} label='test' placeholder='Your mail' />
                 </Grid>
                 <Grid item>
                     <Button className={classes.button}>Contact Me</Button>
