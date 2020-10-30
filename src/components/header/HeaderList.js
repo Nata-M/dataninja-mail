@@ -27,7 +27,8 @@ const useStyles = makeStyles({
             marginRight: '30px'
         },
         [theme.breakpoints.down('sm')]: {
-            marginRight: '14px'
+            // marginRight: '14px',
+            display: 'none'
         },
     },
     primaryText: {

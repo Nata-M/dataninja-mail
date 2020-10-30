@@ -4,6 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import HeaderList from './HeaderList';
 import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
+import MenuRoundedIcon from '@material-ui/icons/MenuRounded';
 
 
 const theme = createMuiTheme({
@@ -30,7 +31,8 @@ const useStyles = makeStyles({
         marginBottom: '40px',
         justifyContent: 'center',
         [theme.breakpoints.down('sm')]: {
-            display: 'none'
+            justifyContent: 'space-between',
+            padding: '0 20px'
         },
     },
 
@@ -46,12 +48,18 @@ const useStyles = makeStyles({
         padding: 0,
         paddingRight: '30px',
         borderRight: '1px solid #c4c4c4',
-        cursor: 'default'
+        cursor: 'default',
+        [theme.breakpoints.down('sm')]: {
+            display: 'none'
+        },
     },
     listItem: {
         display: 'flex',
         marginRight: '50px',
-        alignItems: 'center'
+        alignItems: 'center',
+        [theme.breakpoints.down('sm')]: {
+            display: 'none'
+        },
     },
     primary: {
         fontSize: '14px',
@@ -100,6 +108,19 @@ const useStyles = makeStyles({
         [theme.breakpoints.down('sm')]: {
             marginRight: '16px'
         },
+    },
+    menu: {
+        backgroundColor: '#ff4e00',
+        color: '#ffffff',
+        borderRadius: '50%',
+        minWidth: '22px',
+        marginLeft: '4px',
+        '&:hover': {
+            background: '#ff4e00',
+        },
+        [theme.breakpoints.up('sm')]: {
+            display: 'none'
+        },
     }
 });
 
@@ -126,6 +147,9 @@ function Header() {
             </Grid>
             <Grid item >
                 <Button className={classes.button}>Try Beta for Free</Button>
+            </Grid>
+            <Grid item>
+                <Button className={classes.menu}><MenuRoundedIcon /></Button>
             </Grid>
         </Grid>
     )
