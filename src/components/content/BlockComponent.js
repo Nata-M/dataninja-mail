@@ -1,15 +1,34 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, createMuiTheme } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+
+const theme = createMuiTheme({
+    breakpoints: {
+        values: {
+            xxs: 0,
+            xs: 480,
+            sm: 700,
+            md: 900,
+            lg: 1280,
+            xl: 1920,
+        },
+    },
+})
 
 
 const useStyles = makeStyles({
     root: {
         display: 'flex',
         flexDirection: 'column',
-        width: '30%',
-        justifyContent: 'center',
-        alignItems: 'center'
+        width: '16%',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        [theme.breakpoints.down('xs')]: {
+            width: '30%',
+        },
+        [theme.breakpoints.down('sm')]: {
+            width: '20%',
+        },
     },
     div: {
         width: '52px',
@@ -18,14 +37,31 @@ const useStyles = makeStyles({
         backgroundColor: 'rgb(255,78,0, 0.2)',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '12px',
+            width: '40px',
+            height: '40px'
+        },
+        [theme.breakpoints.down('xs')]: {
+            width: '30px',
+            height: '30px'
+        }
+    },
+    break: {
+        [theme.breakpoints.down('sm')]: {
+            display: 'none'
+        },
     },
     text: {
         fontFamily: 'FiraGO',
         fontSize: '14px',
         lineHeight: '1.5',
         color: '#000000',
-        marginTop: '20px'
+        marginTop: '20px',
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '12px'
+        },
     }
 });
 
@@ -41,7 +77,7 @@ function BlockComponent(props) {
                 {img}
                 {/* <img alt='palette' src={require('../../photos/painter-palette.svg')} /> */}
             </div>
-            <Typography className={classes.text}>{text}<br />{text2}</Typography>
+            <Typography className={classes.text}>{text}<br className={classes.break} />{text2}</Typography>
         </div>
     )
 }

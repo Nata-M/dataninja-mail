@@ -1,17 +1,37 @@
 import React from 'react';
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, createMuiTheme } from "@material-ui/core/styles";
 import Box from '@material-ui/core/Box';
 import Typography from "@material-ui/core/Typography";
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
 
-const useStyles = makeStyles((theme) => ({
+const theme = createMuiTheme({
+    breakpoints: {
+        values: {
+            xxs: 0,
+            xs: 480,
+            sm: 700,
+            md: 960,
+            lg: 1280,
+            xl: 1920,
+        },
+    },
+})
+
+
+const useStyles = makeStyles({
     footer: {
         background: "#151a22",
         paddingBottom: 50,
         paddingTop: 90,
-        marginTop: 50
+        marginTop: 50,
+        [theme.breakpoints.down('sm')]: {
+            paddingTop: '16px'
+        },
+        [theme.breakpoints.down('xs')]: {
+            marginTop: '50px'
+        },
     },
     info: {
         display: 'flex',
@@ -27,7 +47,13 @@ const useStyles = makeStyles((theme) => ({
         color: "#ffffff",
         fontWeight: 900,
         lineHeight: 1.11,
-        textAlign: 'center'
+        textAlign: 'center',
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '36px'
+        },
+        [theme.breakpoints.down('xs')]: {
+            fontSize: '20px'
+        },
     },
     button: {
         fontFamily: 'FiraGO',
@@ -45,21 +71,25 @@ const useStyles = makeStyles((theme) => ({
             background: '#2c7df0',
         }
     },
-    grid: {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItem: 'center',
-        marginTop: 90
-    },
     nested_grid: {
-        boxSizing: "border-box",
+        width: '100%',
         borderTop: "1px solid #2e3641",
         display: 'flex',
         color: '#ffffff',
-        lineHeight: 2.29,
         fontSize: 14,
-        paddingTop: 50,
-        justifyContent: 'center'
+        marginTop: 90,
+        padding: '50px 130px 10px 130px',
+        justifyContent: 'space-between',
+        [theme.breakpoints.down('sm')]: {
+            padding: '20px 30px 0 30px ',
+        },
+        [theme.breakpoints.down('xs')]: {
+            marginTop: '30px',
+            justifyContent: 'center',
+            flexDirection: 'column',
+            padding: '20px 0 0 0',
+            textAlign: 'center',
+        },
     },
     link: {
         fontSize: 14,
@@ -67,31 +97,59 @@ const useStyles = makeStyles((theme) => ({
         lineHeight: 2.29,
         color: '#ffffff',
         marginRight: 60,
+        [theme.breakpoints.down('sm')]: {
+            marginRight: '30px'
+        },
+        [theme.breakpoints.down('xs')]: {
+            fontWeight: 'normal',
+            textAlign: 'center',
+            margin: '0'
+        },
+
     },
     _container: {
         display: 'flex',
         justifyContent: 'center',
+        [theme.breakpoints.down('xs')]: {
+            flexDirection: 'column',
+            alignItems: 'center',
+            textAlign: 'center',
+            marginBottom: '20px'
+        },
     },
     icon: {
         display: 'flex',
         flexDirection: 'row',
-
+        [theme.breakpoints.down('xs')]: {
+            width: '100%',
+            justifyContent: 'center',
+            '& div:nth-child(2)': {
+                marginLeft: '10px',
+                marginRight: '10px'
+            }
+        },
     },
     icons: {
-        marginRight: '12px'
+        marginRight: '12px',
+        [theme.breakpoints.down('xs')]: {
+            margin: '0',
+            '& :nth-child(2)': {
+                marginLeft: '10px'
+            }
+        },
     },
-    // iconStyle: {
-    //     color: "red",
-    //     backgroundColor: '#ffffff',
-    //     borderRadius: '50%',
-    //     width: '20px',
-    //     height: '20px',
-    //     display: 'flex',
-    //     alignItems: 'center',
-    //     justifyContent: 'center'
-    // }
+    copyright: {
+        display: 'flex',
+        alignItems: 'center',
+        [theme.breakpoints.down('xs')]: {
+            width: '100%',
+            marginBottom: '20px',
+            justifyContent: 'center',
+            textAlign: 'center',
+        },
+    }
 
-}))
+})
 function Footer() {
     const classes = useStyles();
     return (
@@ -104,35 +162,35 @@ function Footer() {
                 Be amazed by our product?
             </Typography>
 
-            <Grid item xs={12} className={classes._container}>
+            <Grid item >
                 <Button className={classes.button} variant="filled" color="primary">
                     Try Beta For Free
                     </Button>
             </Grid>
 
-            <Grid item xs={12} className={classes.grid}>
-                <Grid item xs={12} className={classes.nested_grid}>
-                    <Grid item xs={3} style={{ textAlign: 'right' }}>
-                        Dataninja © 2019-20
+            {/* <Grid item className={classes.grid}> */}
+            <Grid item className={classes.nested_grid}>
+                <Grid item className={classes.copyright}>
+                    Dataninja © 2019-20
                         </Grid>
-                    <Grid item xs={7} className={classes._container}>
-                        <Link href="#" className={classes.link}>Product Story</Link>
-                        <Link href="#" className={classes.link}>About us</Link>
-                        <Link href="#" className={classes.link}>Contact</Link>
-                    </Grid>
-                    <Grid item xs={2} className={classes.icon}>
-                        <div className={classes.icons} >
-                            <i className="fa fa-facebook" style={{ color: "#000000", backgroundColor: '#ffffff', borderRadius: '50%', width: '20px', height: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center' }} ></i>
-                        </div>
-                        <div className={classes.icons} >
-                            <i className="fa fa-twitter" style={{ color: "#000000", backgroundColor: '#ffffff', borderRadius: '50%', width: '20px', height: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}></i>
-                        </div>
-                        <div className={classes.icons} >
-                            <i className="fa fa-instagram" style={{ color: "#ffffff", backgroundColor: '#151a22', fontSize: '24px', borderRadius: '50 % ', width: '20px', height: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}></i>
-                        </div>
-                    </Grid>
+                <Grid item className={classes._container}>
+                    <Link href="#" className={classes.link}>Product Story</Link>
+                    <Link href="#" className={classes.link}>About us</Link>
+                    <Link href="#" className={classes.link}>Contact</Link>
+                </Grid>
+                <Grid item className={classes.icon}>
+                    <div className={classes.icons} >
+                        <i className="fa fa-facebook" style={{ color: "#000000", backgroundColor: '#ffffff', borderRadius: '50%', width: '20px', height: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center' }} ></i>
+                    </div>
+                    <div className={classes.icons} >
+                        <i className="fa fa-twitter" style={{ color: "#000000", backgroundColor: '#ffffff', borderRadius: '50%', width: '20px', height: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}></i>
+                    </div>
+                    <div className={classes.icons} >
+                        <i className="fa fa-instagram" style={{ color: "#ffffff", backgroundColor: '#151a22', fontSize: '24px', borderRadius: '50 % ', width: '20px', height: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}></i>
+                    </div>
                 </Grid>
             </Grid>
+            {/* </Grid> */}
         </Box>
     );
 }

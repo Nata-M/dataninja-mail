@@ -1,9 +1,26 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, createMuiTheme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import HeaderList from './HeaderList';
 import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
+
+
+const theme = createMuiTheme({
+    breakpoints: {
+        values: {
+            xxs: 0,
+            xs: 480,
+            sm: 700,
+            md: 900,
+            lg: 1280,
+            xl: 1920,
+        },
+    },
+})
+
+
+
 
 const useStyles = makeStyles({
     container: {
@@ -11,7 +28,10 @@ const useStyles = makeStyles({
         width: '100%',
         alignItems: 'center',
         marginBottom: '40px',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        [theme.breakpoints.down('sm')]: {
+            display: 'none'
+        },
     },
 
     logo: {
@@ -62,14 +82,24 @@ const useStyles = makeStyles({
         fontWeight: 'bold',
         '&:hover': {
             background: '#2c7df0',
-        }
+        },
+        [theme.breakpoints.down('md')]: {
+            fontSize: '12px',
+            padding: '8px 12px'
+        },
     },
     div: {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'flex-start',
         marginLeft: '10px',
-        marginRight: '50px'
+        marginRight: '50px',
+        [theme.breakpoints.down('md')]: {
+            marginRight: '30px'
+        },
+        [theme.breakpoints.down('sm')]: {
+            marginRight: '16px'
+        },
     }
 });
 

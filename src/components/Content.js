@@ -1,8 +1,19 @@
 import React from 'react';
 import ContentTop from './ContentTop';
 import ContentBottom from './ContentBottom';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, createMuiTheme } from '@material-ui/core/styles';
 
+const theme = createMuiTheme({
+    breakpoints: {
+        values: {
+            xs: 0,
+            sm: 700,
+            md: 960,
+            lg: 1280,
+            xl: 1920,
+        },
+    },
+})
 
 const useStyles = makeStyles({
     root: {
@@ -17,7 +28,10 @@ const useStyles = makeStyles({
         // marginTop: '250px',
         // marginLeft: '8%',
         width: '170px',
-        height: '170px'
+        height: '170px',
+        [theme.breakpoints.down('md')]: {
+            display: 'none'
+        },
     },
     img2: {
         position: 'absolute',
@@ -26,7 +40,10 @@ const useStyles = makeStyles({
         // marginTop: '350px',
         // marginLeft: '25%',
         width: '84px',
-        height: '85px'
+        height: '85px',
+        [theme.breakpoints.down('md')]: {
+            display: 'none'
+        },
     },
     img3: {
         position: 'absolute',
@@ -35,16 +52,20 @@ const useStyles = makeStyles({
         // marginTop: '200px',
         // marginLeft: '82%',
         width: '150px',
-        height: '140px'
+        height: '140px',
+        [theme.breakpoints.down('md')]: {
+            display: 'none'
+        },
     },
     img4: {
         position: 'absolute',
         right: '19.5%',
         top: '9.2%',
-        // marginTop: '355px',
-        // marginLeft: '70.5%',
         width: '150px',
-        height: '140px'
+        height: '140px',
+        [theme.breakpoints.down('md')]: {
+            display: 'none'
+        },
     },
 });
 
